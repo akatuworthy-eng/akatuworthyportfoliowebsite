@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- 3D Three.js WebGL Scene Container & Contrast Vignette Layer -->
+  <div id="canvas-container" class="canvas-container" aria-hidden="true"></div>
+  <div class="canvas-overlay" aria-hidden="true"></div>
+
+  <!-- Accessible Fallback for WebGL-disabled or reduced environments -->
+  <div id="webgl-fallback" class="webgl-fallback sr-only" role="status">
+    Interactive 3D visuals running in static fallback mode.
+  </div>
+
   <a class="skip-link" href="#projects">Skip to content</a>
 
   <!-- Header / Nav -->
@@ -164,10 +173,16 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>&copy; <span id="year">2026</span> akatuworthy. Built with plain HTML, CSS &amp; JavaScript.</p>
-      <p class="footer-foot">No frameworks. No build step. Just the web.</p>
+      <p class="footer-foot">Enhanced with Three.js, Lenis &amp; GSAP.</p>
     </div>
   </footer>
 
+  <!-- WebGL, Motion & Interaction Scripts -->
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="three-scene.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
