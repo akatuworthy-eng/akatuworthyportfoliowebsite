@@ -1,18 +1,19 @@
 # akatuworthy — Portfolio
 
-A modern, responsive personal portfolio for **akatuworthy**, an AI engineer building intelligent products with FastAPI, React, and PostgreSQL — upgraded with an immersive Three.js WebGL experience, smooth scroll choreography, and interactive 3D objects.
+A responsive multi-page portfolio for **akatuworthy**, an AI engineer and product builder. Its visual direction uses an immersive 3D opening, editorial project previews, oversized typography, a full-screen lime navigation, and a bright contact close. The static site uses the existing Three.js, Lenis, and GSAP stack, with a CSS transition fallback between pages.
 
 ## What's here
 
-- **3D Living Intelligence Core** — A Three.js WebGL scene featuring a multifaceted translucent icosahedron shell, a luminous wireframe lattice, instanced vertex knowledge nodes, a nested counter-rotating energy core, 3 gyroscopic orbital rings with an orbiting satellite beacon, and a volumetric neural particle field with harmonic wave drift.
-- **Scroll-Driven Choreography** — Camera and 3D object motion synced to scroll progress using **Lenis** smooth scrolling and **GSAP ScrollTrigger**, gliding smoothly behind content as you transition between Hero, Projects, Skills, and Contact.
-- **Interactive Pointer Parallax** — Subtle, non-intrusive cursor and pointer parallax with reactive point lighting tracking the cursor, without hijacking native touch gestures or links.
-- **Glassmorphic HUD Cards** — High-contrast translucent cards with backdrop blur for project cards and skill chips, keeping all text crisp and WCAG compliant over the 3D canvas.
-- **Hero** — Name, role line ("AI Engineer & Builder"), tagline with call-to-action buttons, and stats highlights.
-- **Projects** — 7 built projects with stacks (Ask an Elder, AI Interview Coach, SmartBudgetTracker, AI Customer Service Chatbot, techmate, SmartReply, AI Travel Companion).
-- **Skills & stack** — Python, FastAPI, React, PostgreSQL, Docker, OpenAI, Git, HTML/CSS/JS.
-- **Contact** — Direct collaboration email CTA with luminous beacon focus.
-- **Accessibility & Fallbacks** — WebGL feature detection with graceful static fallback, full keyboard navigation, skip link, ARIA states, and strict `prefers-reduced-motion` compliance.
+- **Scroll-led 3D chapters** — The Three.js scene changes position, scale, lighting, and camera distance in sync with Lenis and GSAP ScrollTrigger.
+- **Pinned project reel** — Seven projects move horizontally through a full-screen desktop gallery, with a vertical card layout on mobile.
+- **Immersive details** — Full-screen transition chapter, animated marquee, scroll progress indicator, and responsive reveal motion.
+- **Selected work** — Seven projects presented with custom CSS artwork and compact project descriptions.
+- **Four pages** — Home, project archive, About, and Contact, each with shared navigation and footer links.
+- **Page transitions** — A color curtain transition with reduced-motion support and same-origin navigation handling.
+- **About** — A short statement about the product approach and areas of focus.
+- **Contact** — A high contrast closing section with a direct email link.
+- **Full-screen navigation** — Responsive menu with keyboard support, Escape handling, and accessible state updates.
+- **Motion and fallback support** — Lenis smooth scrolling, GSAP ScrollTrigger choreography, native reveal fallback, WebGL detection, and reduced-motion handling.
 
 ## Running it locally
 
@@ -28,8 +29,12 @@ Then open <http://localhost:8000> in your browser.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Page structure, semantic content, and WebGL canvas container |
-| `styles.css` | Theming, CSS variables, canvas layering, glassmorphic HUD styling, responsive rules |
+| `index.html` | Home page, project reel, and WebGL canvas container |
+| `work.html` | Full project archive |
+| `about.html` | Approach and capabilities |
+| `contact.html` | Contact page |
+| `styles.css` | Shared visual theme, project artwork, and responsive home page styles |
+| `pages.css` | Shared page layouts and route transition styles |
 | `three-scene.js` | Three.js scene setup, 3D geometries, particle system, lighting, pointer tracking, and cleanup |
 | `script.js` | Lenis smooth scroll, GSAP ScrollTrigger choreography, mobile nav, and lifecycle management |
 | `vendor/` | Vendored runtime libraries (`three.min.js`, `lenis.min.js`, `gsap.min.js`, `ScrollTrigger.min.js`) |
@@ -46,5 +51,5 @@ Then open <http://localhost:8000> in your browser.
    - Adjust `particleCount` in `buildNeuralParticleField()` (default: 900 desktop, 420 mobile).
 
 3. **Retheming**:
-   - Color variables are defined in `:root` inside `styles.css` (`--bg`, `--accent`, `--mono`).
-   - 3D lights and materials in `three-scene.js` use matching hex values (`0x5eead4` for teal accent, `0x38bdf8` for cyber cyan, `0x0b0e14` for background).
+   - Color variables are defined in `:root` inside `styles.css` (`--bg`, `--acid`, `--mono`).
+   - 3D lights and materials in `three-scene.js` use a matching lime and olive palette.

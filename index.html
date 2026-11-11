@@ -3,186 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#11110f" />
   <title>akatuworthy — AI Engineer &amp; Builder</title>
-  <meta name="description" content="Personal portfolio of akatuworthy, an AI engineer building intelligent products with FastAPI, React, and PostgreSQL." />
+  <meta name="description" content="Akatuworthy builds thoughtful AI products and interactive digital experiences." />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
 </head>
 <body>
-  <!-- 3D Three.js WebGL Scene Container & Contrast Vignette Layer -->
+  <div class="page-curtain" aria-hidden="true"></div>
   <div id="canvas-container" class="canvas-container" aria-hidden="true"></div>
   <div class="canvas-overlay" aria-hidden="true"></div>
+  <div id="webgl-fallback" class="webgl-fallback sr-only" role="status">3D visuals are unavailable in this browser.</div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+  <a class="skip-link" href="#work">Skip to content</a>
 
-  <!-- Accessible Fallback for WebGL-disabled or reduced environments -->
-  <div id="webgl-fallback" class="webgl-fallback sr-only" role="status">
-    Interactive 3D visuals running in static fallback mode.
-  </div>
-
-  <a class="skip-link" href="#projects">Skip to content</a>
-
-  <!-- Header / Nav -->
   <header class="site-header">
-    <nav class="nav container" aria-label="Primary">
-      <a class="brand" href="#top">
-        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
-        <span class="brand-name">akatuworthy</span>
-      </a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
-
-      <ul class="nav-menu" id="navMenu">
-        <li><a class="nav-link" href="#top">Home</a></li>
-        <li><a class="nav-link" href="#projects">Projects</a></li>
-        <li><a class="nav-link" href="#skills">Skills</a></li>
-        <li><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <a class="brand" href="index.html" aria-label="akatuworthy home"><span class="brand-symbol">a<span>.</span></span><span class="brand-name">akatuworthy</span></a>
+    <a class="header-mail" href="contact.html">Have a project? <span>Let’s talk ↗</span></a>
+    <button class="menu-button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span class="menu-label">Menu</span><i></i><i></i></button>
   </header>
 
+  <nav class="menu-overlay" id="navMenu" aria-label="Main menu" aria-hidden="true">
+    <div class="menu-top"><span>Navigation</span><button id="menuClose" type="button">Close <b>×</b></button></div>
+    <div class="menu-links">
+      <a href="index.html"><small>01</small>Home<span>↗</span></a>
+      <a href="work.html"><small>02</small>Selected work<span>↗</span></a>
+      <a href="about.html"><small>03</small>About<span>↗</span></a>
+      <a href="contact.html"><small>04</small>Contact<span>↗</span></a>
+    </div>
+    <div class="menu-bottom"><span>AI Engineer · Product Builder</span><a href="mailto:akatuworthy@gmail.com">akatuworthy@gmail.com</a></div>
+  </nav>
+
   <main id="top">
-    <!-- Hero -->
-    <section class="hero container">
-      <p class="hero-eyebrow">Hello, I&rsquo;m</p>
-      <h1 class="hero-name">akatuworthy</h1>
-      <h2 class="hero-role">AI Engineer &amp; Builder</h2>
-      <p class="hero-tagline">
-        I design and ship intelligent products — from living knowledge archives to
-        AI-powered coaching — turning raw data and language into software that works.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">View my work</a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
-      </div>
-      <ul class="hero-stats" aria-label="Highlights">
-        <li><strong>7+</strong><span>projects built</span></li>
-        <li><strong>Full-stack</strong><span>AI to deployment</span></li>
-        <li><strong>Open</strong><span>to collaborations</span></li>
-      </ul>
-    </section>
-
-    <!-- Projects -->
-    <section class="section" id="projects">
-      <div class="container">
-        <header class="section-head reveal">
-          <h2 class="section-title">Selected projects</h2>
-          <p class="section-sub">A few things I&rsquo;ve designed, built, and shipped.</p>
-        </header>
-
-        <div class="projects-grid">
-          <article class="card project-card reveal">
-            <span class="project-tag">Featured</span>
-            <h3 class="project-title">Ask an Elder</h3>
-            <p class="project-desc">
-              Idoma Living Knowledge Engine — recorded oral knowledge from Idoma elders,
-              with consented audio, transcription, and graph retrieval.
-            </p>
-            <p class="project-stack">FastAPI &middot; React &middot; PostgreSQL</p>
-          </article>
-
-          <article class="card project-card reveal">
-            <h3 class="project-title">AI Interview Coach</h3>
-            <p class="project-desc">
-              Practice interviews with an AI scoring coach that grades your answers and
-              coaches you toward a better performance.
-            </p>
-            <p class="project-stack">LLM &middot; React &middot; FastAPI</p>
-          </article>
-
-          <article class="card project-card reveal">
-            <h3 class="project-title">SmartBudgetTracker</h3>
-            <p class="project-desc">
-              Personal budget tracking — a clean, deliberate way to see where your money
-              goes and plan ahead.
-            </p>
-            <p class="project-stack">React &middot; PostgreSQL</p>
-          </article>
-
-          <article class="card project-card reveal">
-            <h3 class="project-title">AI Customer Service Chatbot</h3>
-            <p class="project-desc">
-              Intent-aware customer support bot that understands what customers need and
-              routes them to the right answers.
-            </p>
-            <p class="project-stack">NLP &middot; FastAPI &middot; React</p>
-          </article>
-
-          <article class="card project-card reveal">
-            <h3 class="project-title">techmate</h3>
-            <p class="project-desc">
-              AI-powered tech services — a friendly companion for getting technical help done.
-            </p>
-            <p class="project-stack">LLM &middot; Web</p>
-          </article>
-
-          <article class="card project-card reveal">
-            <h3 class="project-title">SmartReply</h3>
-            <p class="project-desc">
-              Tone-aware reply generator that matches the voice you want, from formal to casual.
-            </p>
-            <p class="project-stack">LLM &middot; API</p>
-          </article>
-
-          <article class="card project-card reveal">
-            <h3 class="project-title">AI Travel Companion</h3>
-            <p class="project-desc">
-              Itinerary planning assistant that turns loose ideas into a day-by-day travel plan.
-            </p>
-            <p class="project-stack">LLM &middot; React</p>
-          </article>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-kicker"><span class="status-dot"></span> Independent AI engineer <span class="kicker-divider">/</span> Available for select projects</div>
+      <div class="hero-copy">
+        <p class="hero-overline">Ideas into useful things.</p>
+        <h1 id="hero-title">I build digital<br />experiences with <em>intelligence.</em></h1>
+        <div class="hero-bottom">
+          <p class="hero-description">From living knowledge archives to AI-powered tools, I turn ambitious ideas into thoughtful products people can use.</p>
+          <a class="circle-link" href="work.html" aria-label="Explore selected work"><span>Explore<br />my work</span><b>↓</b></a>
         </div>
       </div>
+      <div class="hero-index"><span>01 / 05</span><span>Scroll to explore</span></div>
+      <div class="hero-orbit" aria-hidden="true"><span class="orbit-label">Curiosity in motion</span></div>
     </section>
 
-    <!-- Skills -->
-    <section class="section" id="skills">
-      <div class="container">
-        <header class="section-head reveal">
-          <h2 class="section-title">Skills &amp; stack</h2>
-          <p class="section-sub">Tools I reach for when building real products.</p>
-        </header>
-        <ul class="skills-list reveal">
-          <li class="skill-chip">Python</li>
-          <li class="skill-chip">FastAPI</li>
-          <li class="skill-chip">React</li>
-          <li class="skill-chip">PostgreSQL</li>
-          <li class="skill-chip">Docker</li>
-          <li class="skill-chip">OpenAI</li>
-          <li class="skill-chip">Git</li>
-          <li class="skill-chip">HTML / CSS / JS</li>
-        </ul>
+    <section class="interlude" id="approach">
+      <div class="interlude-orb" aria-hidden="true"><span></span><i></i></div>
+      <div class="interlude-copy">
+        <p class="eyebrow">Curiosity meets craft</p>
+        <h2>Bold ideas.<br /><em>Brought to life.</em></h2>
+        <p class="interlude-description">Design, engineering, and applied AI come together to make digital products feel clear, useful, and a little unexpected.</p>
       </div>
+      <div class="interlude-footer"><span>Scroll to explore</span><span>02 / 05</span></div>
     </section>
 
-    <!-- Contact -->
-    <section class="section section-contact" id="contact">
-      <div class="container">
-        <header class="section-head reveal">
-          <h2 class="section-title">Let&rsquo;s build something</h2>
-          <p class="section-sub">
-            I&rsquo;m open to collaborations, interesting problems, and good conversations.
-          </p>
-        </header>
-        <a class="btn btn-primary btn-lg" href="mailto:akatuworthy@gmail.com">akatuworthy@gmail.com</a>
+    <section class="work section-wrap" id="work">
+      <div class="section-heading"><div><p class="eyebrow">A selection of things made</p><h2>Selected work<span class="accent-dot">.</span></h2></div><p class="section-note">A few experiments and products<br />built to make a difference.</p></div>
+      <div class="work-rail">
+      <div class="work-grid">
+        <article class="project project-large reveal">
+          <a class="project-link" href="mailto:akatuworthy@gmail.com?subject=Ask%20an%20Elder" aria-label="Ask an Elder project details">
+            <div class="project-art art-elder"><div class="elder-sun"></div><div class="elder-lines"></div><div class="elder-wave wave-one"></div><div class="elder-wave wave-two"></div><span class="art-caption">MEMORY / VOICE / PLACE</span><span class="art-index">01</span></div>
+            <div class="project-meta"><div><span class="project-type">AI · CULTURE · KNOWLEDGE</span><h3>Ask an Elder</h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-summary">An evolving home for Idoma living knowledge, connecting oral histories with the next generation.</p>
+          </a>
+        </article>
+        <article class="project reveal">
+          <a class="project-link" href="mailto:akatuworthy@gmail.com?subject=AI%20Interview%20Coach" aria-label="AI Interview Coach project details">
+            <div class="project-art art-coach"><div class="coach-window"><div class="coach-top"><i></i><i></i><i></i><span>SESSION 08:42</span></div><div class="coach-wave"></div><div class="coach-score"><strong>84</strong><small>answer clarity</small></div></div><span class="art-index">02</span></div>
+            <div class="project-meta"><div><span class="project-type">AI · LEARNING · PRODUCT</span><h3>Interview Coach</h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-summary">A focused practice space that turns interview answers into useful, actionable coaching.</p>
+          </a>
+        </article>
+        <article class="project reveal">
+          <a class="project-link" href="mailto:akatuworthy@gmail.com?subject=SmartBudgetTracker" aria-label="SmartBudgetTracker project details">
+            <div class="project-art art-budget"><span class="budget-label">YOUR MONTH, IN FOCUS</span><div class="budget-total">$2,480<span>.00</span></div><div class="budget-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="budget-foot">SAVINGS TREND <b>↗ 12.8%</b></span><span class="art-index">03</span></div>
+            <div class="project-meta"><div><span class="project-type">FINTECH · WEB APP</span><h3>SmartBudgetTracker</h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-summary">A clear, calm way to understand spending, build better habits, and plan ahead.</p>
+          </a>
+        </article>
+        <article class="project project-large reveal">
+          <a class="project-link" href="mailto:akatuworthy@gmail.com?subject=SmartReply" aria-label="SmartReply project details">
+            <div class="project-art art-reply"><div class="reply-card"><span>INBOX / 03</span><p>“Could we move the deadline to Friday?”</p><div class="reply-options"><b>Warm</b><b>Direct</b><b>Formal</b></div><div class="reply-output">Absolutely — Friday works well for me. I’ll send an update before then.</div></div><span class="art-index">04</span></div>
+            <div class="project-meta"><div><span class="project-type">GENERATIVE AI · TOOL</span><h3>SmartReply</h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-summary">A tone-aware writing assistant for saying the right thing, in your own voice.</p>
+          </a>
+        </article>
+        <article class="project reveal">
+          <a class="project-link" href="mailto:akatuworthy@gmail.com?subject=AI%20Customer%20Service%20Assistant" aria-label="AI Customer Service Assistant project details">
+            <div class="project-art art-support"><div class="support-chat"><span>SUPPORT / ONLINE</span><p>How can I help today?</p><b>Track an order</b><b>Update my account</b><i>Ask anything… <strong>↑</strong></i></div><span class="art-index">05</span></div>
+            <div class="project-meta"><div><span class="project-type">CONVERSATIONAL AI · SERVICE</span><h3>Customer Service AI</h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-summary">An intent-aware assistant that understands what customers need and gets them to the right answer.</p>
+          </a>
+        </article>
+        <article class="project reveal">
+          <a class="project-link" href="mailto:akatuworthy@gmail.com?subject=AI%20Travel%20Companion" aria-label="AI Travel Companion project details">
+            <div class="project-art art-travel"><div class="travel-route"></div><span class="travel-pin pin-a">01</span><span class="travel-pin pin-b">02</span><span class="travel-pin pin-c">03</span><span class="travel-card">A day worth remembering<small>3 stops · 6.4 km</small></span><span class="art-index">06</span></div>
+            <div class="project-meta"><div><span class="project-type">AI · TRAVEL · PLANNING</span><h3>Travel Companion</h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-summary">A personal itinerary planner that turns loose ideas into a day-by-day journey.</p>
+          </a>
+        </article>
+        <article class="project reveal">
+          <a class="project-link" href="mailto:akatuworthy@gmail.com?subject=techmate" aria-label="techmate project details">
+            <div class="project-art art-techmate"><div class="tech-orb"><span>t</span></div><div class="techmate-caption">A LITTLE HELP<br />GOES A LONG WAY</div><span class="art-index">07</span></div>
+            <div class="project-meta"><div><span class="project-type">AI · DIGITAL SERVICES</span><h3>techmate</h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-summary">A friendly AI-powered companion for getting everyday technical help done.</p>
+          </a>
+        </article>
       </div>
+      </div>
+      <div class="work-footer"><span>Scroll to move through the work</span><a href="work.html">View all projects <b>↗</b></a></div>
+    </section>
+
+    <div class="marquee" aria-label="AI, product, engineering, and human centered design"><div class="marquee-track" aria-hidden="true"><span>AI with intention</span><i>✳</i><span>Products with purpose</span><i>✳</i><span>Engineering with care</span><i>✳</i><span>AI with intention</span><i>✳</i><span>Products with purpose</span><i>✳</i><span>Engineering with care</span><i>✳</i></div></div>
+
+    <section class="about section-wrap" id="about">
+      <div class="about-top"><p class="eyebrow">A little about my approach</p><span class="about-mark">a<span>.</span></span></div>
+      <h2 class="about-statement reveal">Good technology should feel <em>human.</em> I bring design thinking and engineering together to make software that earns its place in people’s lives.</h2>
+      <div class="about-bottom"><p>I work across the full product journey — asking better questions, shaping clear experiences, and building robust systems that are ready for the real world.</p><div class="expertise"><span>WHAT I BRING</span><b>AI &amp; applied ML</b><b>Product engineering</b><b>Full-stack development</b><b>Data &amp; knowledge systems</b></div></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-inner"><p class="eyebrow">Have a good one in mind?</p><h2>Let’s make<br /><em>something matter.</em></h2><a class="contact-link" href="contact.html">Start a conversation <span>↗</span></a></div>
+      <div class="contact-orb" aria-hidden="true"></div>
+      <div class="contact-bottom"><span>Open to thoughtful collaborations</span><span>Based wherever the work takes me</span></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year">2026</span> akatuworthy. Built with plain HTML, CSS &amp; JavaScript.</p>
-      <p class="footer-foot">Enhanced with Three.js, Lenis &amp; GSAP.</p>
-    </div>
-  </footer>
+  <footer class="site-footer"><a class="footer-brand" href="index.html">akatuworthy<span>.</span></a><span>© <span id="year">2026</span> akatuworthy</span><div><a href="contact.html">Contact</a><a href="#top">Back to top ↑</a></div></footer>
 
-  <!-- WebGL, Motion & Interaction Scripts -->
-  <script src="vendor/three.min.js"></script>
-  <script src="vendor/lenis.min.js"></script>
-  <script src="vendor/gsap.min.js"></script>
-  <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="three-scene.js"></script>
-  <script src="script.js"></script>
+  <script src="vendor/three.min.js"></script><script src="vendor/lenis.min.js"></script><script src="vendor/gsap.min.js"></script><script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="three-scene.js"></script><script src="script.js"></script>
 </body>
 </html>
