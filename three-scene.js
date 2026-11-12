@@ -147,7 +147,13 @@
       this.isInitialized = true;
       this.lastTime = performance.now();
       this.animate = this.animate.bind(this);
-      this.rafId = requestAnimationFrame(this.animate);
+      this.prefersReducedMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (this.prefersReducedMotion) {
+        this.renderStaticFrame();
+      } else {
+        this.rafId = requestAnimationFrame(this.animate);
+      }
 
       document.documentElement.classList.add("webgl-active");
       return true;
@@ -439,7 +445,11 @@
         } else {
           self.isPaused = false;
           self.lastTime = performance.now();
-          self.rafId = requestAnimationFrame(self.animate);
+          if (self.prefersReducedMotion) {
+            self.renderStaticFrame();
+          } else {
+            self.rafId = requestAnimationFrame(self.animate);
+          }
         }
       };
       document.addEventListener(
@@ -462,6 +472,7 @@
       this.renderer.setPixelRatio(this.getPixelRatio());
 
       this.updateLayoutPlacement(width);
+      if (this.prefersReducedMotion) this.renderStaticFrame();
     },
 
     handlePointerMove: function (e) {
@@ -560,6 +571,12 @@
       }
 
       this.rafId = requestAnimationFrame(this.animate);
+    },
+
+    renderStaticFrame: function () {
+      if (this.renderer && this.scene && this.camera) {
+        this.renderer.render(this.scene, this.camera);
+      }
     },
 
     destroy: function () {
