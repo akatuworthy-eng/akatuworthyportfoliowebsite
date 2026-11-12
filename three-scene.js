@@ -72,6 +72,14 @@
     // Disposables
     disposables: [],
 
+    getPixelRatio: function () {
+      var deviceRatio = window.devicePixelRatio || 1;
+      var lowPower = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+        (navigator.deviceMemory && navigator.deviceMemory <= 4);
+      var cap = lowPower ? 1.15 : 1.5;
+      return Math.min(deviceRatio, cap);
+    },
+
     init: function (containerSelector) {
       if (!isWebGLAvailable()) {
         console.warn("WebGL not supported or disabled. Portfolio 3D fallback active.");
@@ -112,7 +120,7 @@
         powerPreference: "high-performance",
       });
       this.renderer.setSize(width, height);
-      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      this.renderer.setPixelRatio(this.getPixelRatio());
       this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
       this.renderer.toneMappingExposure = 1.15;
       this.container.appendChild(this.renderer.domElement);
@@ -336,7 +344,7 @@
     },
 
     buildNeuralParticleField: function (width) {
-      var count = width < 768 ? 420 : 900;
+      var lowPower = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);\n      var count = lowPower ? (width < 768 ? 140 : 260) : (width < 768 ? 260 : 620);
       this.particleCount = count;
 
       var particleGeo = new THREE.BufferGeometry();
@@ -451,7 +459,7 @@
       this.camera.updateProjectionMatrix();
 
       this.renderer.setSize(width, height);
-      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      this.renderer.setPixelRatio(this.getPixelRatio());
 
       this.updateLayoutPlacement(width);
     },
