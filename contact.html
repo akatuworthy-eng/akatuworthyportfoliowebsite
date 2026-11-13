@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="theme-color" content="#d8ee8b" />
-  <title>Let’s Talk — akatuworthy</title><meta name="description" content="Get in touch with akatuworthy about a product, AI, or software collaboration." />
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b12"><title>Contact — akatuworthy</title>
+  <meta name="description" content="Contact akatuworthy about a product, AI system, or software project.">
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="pages.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="reference.css"><link rel="stylesheet" href="cyberpunk.css">
 </head>
-<body>
-  <div class="page-curtain" aria-hidden="true"></div><div id="canvas-container" class="canvas-container" aria-hidden="true"></div><div class="canvas-overlay" aria-hidden="true"></div><div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+<body data-page="contact">
+  <div class="page-curtain" aria-hidden="true"></div><div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
   <a class="skip-link" href="#contact-main">Skip to content</a>
-  <header class="site-header"><a class="brand" href="index.html" aria-label="akatuworthy home"><span class="brand-symbol">a<span>.</span></span><span class="brand-name">akatuworthy</span></a><a class="header-mail" href="mailto:akatuworthy@gmail.com">Have a project? <span>Let’s talk ↗</span></a><button class="menu-button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span class="menu-label">Menu</span><i></i><i></i></button></header>
-  <nav class="menu-overlay" id="navMenu" aria-label="Main menu" aria-hidden="true"><div class="menu-top"><span>Navigation</span><button id="menuClose" type="button">Close <b>×</b></button></div><div class="menu-links"><a href="index.html"><small>01</small>Home<span>↗</span></a><a href="work.html"><small>02</small>Selected work<span>↗</span></a><a href="about.html"><small>03</small>About<span>↗</span></a><a href="contact.html"><small>04</small>Contact<span>↗</span></a></div><div class="menu-bottom"><span>AI Engineer · Product Builder</span><a href="mailto:akatuworthy@gmail.com">akatuworthy@gmail.com</a></div></nav>
+  <header class="site-header"><a class="brand" href="index.html" aria-label="Home"><span class="brand-symbol">✳</span><span class="brand-name" data-content="name"></span></a><a class="header-mail" href="mailto:akatuworthy@gmail.com"><span>Have a project?</span><b>Let’s talk</b><i>↗</i></a><button class="menu-button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span class="menu-label">Menu</span><i></i><i></i></button></header>
+  <nav class="menu-overlay" id="navMenu" aria-label="Main menu" aria-hidden="true"><div class="menu-top"><span>Navigate</span><button id="menuClose" type="button">Close <b>×</b></button></div><div class="menu-links" id="navLinks"></div><div class="menu-bottom"><span data-content="role"></span><a data-email-link href="mailto:akatuworthy@gmail.com"></a></div></nav>
   <main id="top" class="inner-page contact-page">
     <div class="contact-page-orb" aria-hidden="true"></div>
-    <section class="contact-main" id="contact-main"><p class="eyebrow">Have a good one in mind?</p><h1 class="reveal">Let’s make<br /><em>something matter.</em></h1><p class="contact-page-intro">A product idea, a knotty technical problem, or a collaboration you think could go somewhere? I’d like to hear about it.</p><a class="contact-email" href="mailto:akatuworthy@gmail.com">akatuworthy@gmail.com <span>↗</span></a></section>
-    <div class="contact-detail-row"><span>Open to thoughtful collaborations</span><span>AI · Product · Engineering</span><a href="work.html">See selected work ↗</a></div>
+    <section class="contact-main" id="contact-main"><p class="eyebrow" data-content="contact.eyebrow"></p><h1 data-html="contact.headline"></h1><p class="contact-page-intro" data-content="contact.intro"></p><a class="contact-email" data-email-link href="mailto:akatuworthy@gmail.com"><span data-content="email"></span><span>↗</span></a><div class="social-links" data-social-links></div></section>
+    <div class="contact-detail-row"><span data-content="contact.focus"></span><span data-content="contact.mission"></span><a href="work.html">See the projects ↗</a></div>
   </main>
-  <footer class="inner-footer"><a class="footer-brand" href="index.html">akatuworthy<span>.</span></a><span>© <span id="year">2026</span> akatuworthy</span><div><a href="work.html">Work</a><a href="about.html">About</a></div></footer>
-  <script src="vendor/three.min.js"></script><script src="vendor/lenis.min.js"></script><script src="vendor/gsap.min.js"></script><script src="vendor/ScrollTrigger.min.js"></script><script src="three-scene.js"></script><script src="script.js"></script>
+  <footer class="inner-footer"><a class="footer-brand" href="index.html"><span data-content="name"></span><span>.</span></a><span>© <span id="year"></span> <span data-content="name"></span></span><div><a href="work.html">Projects</a><a href="about.html">About</a></div></footer>
+  <script src="portfolio-data.js"></script><script src="vendor/gsap.min.js"></script><script src="vendor/ScrollTrigger.min.js"></script><script src="script.js"></script>
 </body>
 </html>

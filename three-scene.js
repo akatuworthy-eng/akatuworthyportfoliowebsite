@@ -160,26 +160,26 @@
 
     buildLighting: function () {
       // Deep slate ambient base
-      this.ambientLight = new THREE.AmbientLight(0x171d0d, 1.6);
+      this.ambientLight = new THREE.AmbientLight(0x10101e, 1.6);
       this.scene.add(this.ambientLight);
 
       // Key light: vivid lime
-      this.keyLight = new THREE.DirectionalLight(0xd5ff45, 2.8);
+      this.keyLight = new THREE.DirectionalLight(0x5555ff, 2.8);
       this.keyLight.position.set(6, 8, 7);
       this.scene.add(this.keyLight);
 
       // Rim light: warm ivory
-      this.rimLight = new THREE.DirectionalLight(0xf1f3d1, 2.2);
+      this.rimLight = new THREE.DirectionalLight(0xe0e0ff, 2.2);
       this.rimLight.position.set(-7, -6, -5);
       this.scene.add(this.rimLight);
 
       // Interactive point light tracking mouse pointer
-      this.interactiveLight = new THREE.PointLight(0xd5ff45, 2.5, 16, 1.6);
+      this.interactiveLight = new THREE.PointLight(0x5555ff, 2.5, 16, 1.6);
       this.interactiveLight.position.set(0, 0, 4);
       this.scene.add(this.interactiveLight);
 
       // Ambient warm indigo fill
-      var accentFill = new THREE.PointLight(0x92ad37, 1.4, 20, 2);
+      var accentFill = new THREE.PointLight(0x6d6dff, 1.4, 20, 2);
       accentFill.position.set(0, -4, 2);
       this.scene.add(accentFill);
     },
@@ -188,8 +188,8 @@
       // A. Outer translucent faceted shell
       var outerGeo = new THREE.IcosahedronGeometry(2.1, 1);
       var outerMat = new THREE.MeshStandardMaterial({
-        color: 0x252b18,
-        emissive: 0x596b22,
+        color: 0x171725,
+        emissive: 0x363677,
         emissiveIntensity: 0.62,
         roughness: 0.18,
         metalness: 0.88,
@@ -205,7 +205,7 @@
       // B. Luminous wireframe cage
       var wireGeo = new THREE.WireframeGeometry(outerGeo);
       var wireMat = new THREE.LineBasicMaterial({
-        color: 0xd5ff45,
+        color: 0x5555ff,
         transparent: true,
         opacity: 0.55,
         blending: THREE.AdditiveBlending,
@@ -230,7 +230,7 @@
       }
 
       var nodeGeo = new THREE.SphereGeometry(0.045, 8, 8);
-      var nodeMat = new THREE.MeshBasicMaterial({ color: 0xe6ff8e });
+      var nodeMat = new THREE.MeshBasicMaterial({ color: 0xc9caff });
       var nodeMesh = new THREE.InstancedMesh(
         nodeGeo,
         nodeMat,
@@ -251,8 +251,8 @@
       // D. Inner resonant energy core (counter-rotating octahedron)
       var innerGeo = new THREE.OctahedronGeometry(1.05, 0);
       var innerMat = new THREE.MeshStandardMaterial({
-        color: 0xb4ce56,
-        emissive: 0xd5ff45,
+        color: 0x7778ff,
+        emissive: 0x5555ff,
         emissiveIntensity: 1.15,
         roughness: 0.2,
         metalness: 0.8,
@@ -289,8 +289,8 @@
         var spec = ringSpecs[i];
         var ringGeo = new THREE.TorusGeometry(spec.radius, spec.tube, 16, 120);
         var ringMat = new THREE.MeshStandardMaterial({
-          color: 0xe0edab,
-          emissive: 0xa7c844,
+          color: 0xc4c5ff,
+          emissive: 0x5555ff,
           emissiveIntensity: 0.6,
           roughness: 0.25,
           metalness: 0.85,
@@ -309,7 +309,7 @@
 
       // Orbital satellite orb on first ring
       var orbGeo = new THREE.SphereGeometry(0.08, 16, 16);
-      var orbMat = new THREE.MeshBasicMaterial({ color: 0xf0ffb0 });
+      var orbMat = new THREE.MeshBasicMaterial({ color: 0xf4f4ff });
       this.satelliteOrb = new THREE.Mesh(orbGeo, orbMat);
       this.coreGroup.add(this.satelliteOrb);
       this.disposables.push(orbGeo, orbMat);
@@ -345,9 +345,9 @@
       var initialPositions = new Float32Array(count * 3);
       var phases = new Float32Array(count);
 
-      var colorTeal = new THREE.Color(0xe7f6ac);
-      var colorCyan = new THREE.Color(0xd5ff45);
-      var colorMuted = new THREE.Color(0x475629);
+      var colorTeal = new THREE.Color(0xc4c5ff);
+      var colorCyan = new THREE.Color(0x5555ff);
+      var colorMuted = new THREE.Color(0x272843);
 
       for (var i = 0; i < count; i++) {
         var i3 = i * 3;
